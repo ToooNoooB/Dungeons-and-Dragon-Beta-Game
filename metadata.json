@@ -1,0 +1,5 @@
+{
+  "name": "Dungeon Master AI",
+  "description": "A fully interactive D&D 5e-style role-playing game powered by Gemini. Create your hero, roll dice, and explore infinite worlds with a persistent save system.",
+  "requestFramePermissions": []
+}
