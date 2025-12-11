@@ -2,7 +2,7 @@ import { GoogleGenAI, Content, FunctionDeclaration, Type, Chat, Tool, Modality }
 import { Character, InventoryItem, Rarity, ItemType, Difficulty } from "../types";
 import { CLASS_PROGRESSION, LEVEL_THRESHOLDS, ELYRIA_LORE, ELYRIA_INTRO } from "../constants";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || 'FAKE_API_KEY_FOR_DEVELOPMENT' });
 
 const updateGameStateTool: FunctionDeclaration = {
   name: 'updateGameState',
@@ -181,7 +181,7 @@ export const generateCharacterBackstory = async (race: string, charClass: string
 export const generateSpeech = async (text: string): Promise<string | null> => {
     if (!text) return null;
     try {
-        const aiInstance = new GoogleGenAI({ apiKey: process.env.API_KEY });
+        const aiInstance = new GoogleGenAI({ apiKey: process.env.API_KEY || 'FAKE_API_KEY_FOR_DEVELOPMENT' });
         const response = await aiInstance.models.generateContent({
             model: 'gemini-2.5-flash-preview-tts',
             contents: { parts: [{ text }] },
